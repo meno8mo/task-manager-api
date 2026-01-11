@@ -1,0 +1,11 @@
+TypeError: taskUsecaseFactory is not a function
+    at Object.<anonymous> (I:\HIKMAunv\IT\SE\labs\vue\task-manager-clean\src\app.js:58:21)
+    at Module._compile (node:internal/modules/cjs/loader:1546:14)
+    at Object..js (node:internal/modules/cjs/loader:1689:10)
+    at Module.load (node:internal/modules/cjs/loader:1318:32)
+    at Function._load (node:internal/modules/cjs/loader:1128:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:315:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:218:24)
+    at Module.require (node:internal/modules/cjs/loader:1340:12)
+    at require (node:internal/modules/helpers:141:16)
+    at Object.<anonymous> (I:\HIKMAunv\IT\SE\labs\vue\task-manager-clean\debug_startup.js:4:5)
