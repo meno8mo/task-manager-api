@@ -37,7 +37,25 @@ const app = express();
 //     origin: ['http://localhost:5173', 'http://localhost:5174', 'https://singular-choux-4b8deb.netlify.app', 'https://keen-selkie-55d92f.netlify.app'], // Allow Vite dev server
 //     credentials: true
 // }));
-app.use(cors());
+const allowedOrigins = [
+    'http://localhost:5173',
+    'http://localhost:5174',
+    'https://singular-choux-4b8deb.netlify.app',
+    'https://keen-selkie-55d92f.netlify.app',
+    'https://fancy-kataifi-2d1618.netlify.app' // Add the current deployed frontend
+];
+
+app.use(cors({
+    origin: function(origin, callback) {
+        if (!origin) return callback(null, true); // allow non-browser requests (Postman, etc.)
+        if (allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('CORS not allowed for this origin: ' + origin));
+        }
+    },
+    credentials: true
+}));
 
 // 2. JSON Parser - Parse incoming JSON data in request body
 // STUDENT NOTE: This middleware converts JSON strings to JavaScript objects
