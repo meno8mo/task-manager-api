@@ -33,27 +33,8 @@ const app = express();
 // 1. CORS - Allow frontend to make requests from different origin
 // STUDENT NOTE: CORS = Cross-Origin Resource Sharing
 // This allows your Vue frontend (http://localhost:5173) to talk to your backend (http://localhost:3000)
-// app.use(cors({
-//     origin: ['http://localhost:5173', 'http://localhost:5174', 'https://singular-choux-4b8deb.netlify.app', 'https://keen-selkie-55d92f.netlify.app'], // Allow Vite dev server
-//     credentials: true
-// }));
-const allowedOrigins = [
-    'http://localhost:5173',
-    'http://localhost:5174',
-    'https://singular-choux-4b8deb.netlify.app',
-    'https://keen-selkie-55d92f.netlify.app',
-    'https://fancy-kataifi-2d1618.netlify.app' // Add the current deployed frontend
-];
-
 app.use(cors({
-    origin: function(origin, callback) {
-        if (!origin) return callback(null, true); // allow non-browser requests (Postman, etc.)
-        if (allowedOrigins.includes(origin)) {
-            callback(null, true);
-        } else {
-            callback(new Error('CORS not allowed for this origin: ' + origin));
-        }
-    },
+    origin: ['http://localhost:5173', 'http://localhost:5174', 'https://tasktracker-it3-ui.netlify.app/'], // Allow Vite dev server
     credentials: true
 }));
 
